@@ -1,4 +1,4 @@
-# mujtaba_charm
+# mujtaba-charm
 This is a python package.
 
 
