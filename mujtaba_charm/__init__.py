@@ -1,5 +1,5 @@
 """
-This package serves as the main entry point for the mujtaba-charm project. It integrates
+This module serves as the main entry point for the mujtaba-charm project. It integrates
 the analysis, models, and utils sub-packages to provide tools for data analysis,
 model building, and utility functions.
 
