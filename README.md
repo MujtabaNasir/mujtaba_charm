@@ -4,6 +4,7 @@ This is a python package.
 
 - [Project Description](#project-description)
 - [Installation](#installation)
+- [Project Setup](#project-setup)
 - [Usage Section](#usage-section)
 - [Testing](#testing)
 
@@ -14,17 +15,12 @@ The project aims to provide a python package using poetry which has 3 sub-packag
 3. utils
 
 ## Installation
-1. Install pytest:
+1. Install mujtaba-charm package using pip:
 ```bash
-poetry add --dev pytest
+pip install dist/mujtaba_charm-0.1.0-py3-none-any.whl
 ```
 
-2. Ensure all dependencies, including pytest, are installed.
-```bash
-poetry install
-```
-
-## Usage Section
+## Project Setup
 1. To clone GitHub repo:
 ```bash
 git clone https://github.com/MujtabaNasir/mujtaba_charm.git
@@ -62,14 +58,40 @@ mkdir utils
 touch analysis/__init__.py models/__init__.py utils/__init__.py
 ```
 
-8. To use the hello funtion from the utils sub-package:
+8. Install pytest:
+```bash
+poetry add --dev pytest
+```
+
+9. Ensure all dependencies, including pytest, are installed.
+```bash
+poetry install
+```
+
+10. To build the python package and create dist directory with the built package files including .tar.gz source archive and a .whl binary wheel
+```bash
+poetry build
+```
+
+11. Install mujtaba-charm package using pip
+```bash
+pip install dist/mujtaba_charm-0.1.0-py3-none-any.whl
+```
+
+12. To install mujtaba-charm in editable mode
+```bash
+pip install -e .
+```
+
+## Usage Section
+1. To use the hello funtion from the utils sub-package:
 ```
 >>> from mujtaba_charm.utils import hello
 
 >>> hello("john")
 'hello john!'
 
->>> hellp()
+>>> hello()
 'hello world!'
 ```
 

@@ -25,6 +25,6 @@ def hello(name="world"):
     """
 
     if not isinstance(name, str):
-        raise TypeError("name should be of string type")
+        raise TypeError(f" {type(name).__name__} is not allowed, name should be of string type")
 
     return f"hello {name}!"
