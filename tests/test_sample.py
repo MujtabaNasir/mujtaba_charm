@@ -4,7 +4,6 @@ from mujtaba_charm.utils.sample import hello
 def test_hello():
     assert hello("john") == "hello john!"
     assert hello() == "hello world!"
-    assert hello(123)
 
     with pytest.raises(TypeError) as e:
         hello(2024)
