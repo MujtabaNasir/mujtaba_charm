@@ -20,6 +20,11 @@ The project aims to provide a python package using poetry which has 3 sub-packag
 pip install git+https://github.com/MujtabaNasir/mujtaba-charm.git
 ```
 
+2. Install a specific branch "branch_uno" from mujtaba-charm package using pip:
+```bash
+pip install git+https://github.com/MujtabaNasir/mujtaba-charm.git@branch_uno
+```
+
 ## Project Setup
 1. To clone GitHub repo:
 ```bash
