@@ -8,3 +8,5 @@ Sub-Packages:
     - models: Contains modules for building and using machine learning models.
     - utils: Contains utility modules and helper functions.
 """
+
+from mujtaba_charm import utils
