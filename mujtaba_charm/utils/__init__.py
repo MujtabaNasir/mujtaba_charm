@@ -4,4 +4,4 @@ This sub-package contains utility functions or helper modules that support
 data manipulation functions, file handling utilities, etc
 """
 
-from mujtaba_charm.utils.sample import hello, string_coloring_utility
+from mujtaba_charm.utils.sample import hello, string_coloring

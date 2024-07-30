@@ -123,6 +123,16 @@ poetry run sphinx-quickstart
 poetry run sphinx-build -b html source _build/html
 ```
 
+20. Install Core Dependencies
+```bash
+pip install .
+```
+
+21. Install Development Dependencie
+```bash
+pip install .[dev]
+```
+
 ## Usage Section
 1. To use the hello funtion from the utils sub-package:
 ```

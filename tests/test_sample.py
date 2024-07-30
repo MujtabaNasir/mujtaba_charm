@@ -1,6 +1,6 @@
 import pytest
 
-from mujtaba_charm.utils.sample import hello,string_coloring_utility
+from mujtaba_charm.utils.sample import hello, string_coloring_utility
 
 
 def test_hello():
@@ -11,5 +11,6 @@ def test_hello():
         hello(2024)
     assert "name should be of string type" in str(e.value)
 
-#Have to insert test cases
-#def test_string_coloring_utility():
+
+# ToDo: Have to insert test cases
+# def test_string_coloring_utility():

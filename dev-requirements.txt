@@ -1,0 +1,5 @@
+coverage==7.6.0
+pytest-cov==5.0.0
+sphinx==7.4.7
+sphinx-autodoc-typehints==2.2.3
+setuptool==72.1.0
