@@ -31,9 +31,9 @@ pip install git+https://github.com/MujtabaNasir/mujtaba-charm.git@branch_uno
 git clone https://github.com/MujtabaNasir/mujtaba_charm.git
 ```
 
-2. To install poetry with pip after cloning the repo:
+2. Navigate into the cloned repository:
 ```bash
-pip install poetry
+cd mujtaba-charm
 ```
 
 3. To create and switch to a new branch:
@@ -113,11 +113,6 @@ poetry add --group dev sphinx sphinx-autodoc-typehints
 poetry run sphinx-quickstart
 ```
 
-18. Configure Sphinx to set up documentation
-```bash
-poetry run sphinx-quickstart
-```
-
 19. To generate documentation
 ```bash
 poetry run sphinx-build -b html source _build/html
@@ -125,12 +120,12 @@ poetry run sphinx-build -b html source _build/html
 
 20. Install Core Dependencies
 ```bash
-pip install .
+pip install -r requirements.txt
 ```
 
 21. Install Development Dependencie
 ```bash
-pip install .[dev]
+pip install -r requirements-dev.txt
 ```
 
 ## Usage Section

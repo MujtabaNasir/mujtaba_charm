@@ -10,3 +10,8 @@ Sub-Packages:
 """
 
 from mujtaba_charm import utils
+
+utils.hello("sup")
+print(utils.color_string("Hello, world!", "red"))
+print(utils.color_string("Hello, world!", "blue"))
+print(utils.color_string("Hello, world!", "green"))

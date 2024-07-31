@@ -6,7 +6,7 @@ authors = ["MujtabaNasir <mujtaba.nasir1312@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
+python = ">=3.8,<3.13"
 
 [tool.poetry.extras]
 dev = ["pytest", "black", "isort", "coverage", "pytest-cov", "sphinx", "sphinx-autodoc-typehints"]
