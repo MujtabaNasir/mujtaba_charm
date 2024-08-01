@@ -2,7 +2,7 @@
 This module contains the hello function & string coloring utility.
 """
 
-from typing import Optional
+from typing import Literal
 
 
 def hello(name="world") -> str:
@@ -38,7 +38,7 @@ def hello(name="world") -> str:
     return f"hello {name}!"
 
 
-def color_string(text: str, color: str) -> str:
+def color_string(text: str, color: Literal["red", "blue", "green"]) -> str:
     """
     Returns the input string in the specified color.
 
@@ -54,15 +54,15 @@ def color_string(text: str, color: str) -> str:
 
     Example:
         >>> color_string("Hello, world!", "red")
-        '\x1b[91mHello, world!\x1b[0m'
+        '\033[91mHello, world!\033[0m'
 
         >>> color_string("Hello, world!", "blue")
-        '\x1b[94mHello, world!\x1b[0m'
+        '\033[94mHello, world!\033[0m'
     """
     color_codes = {"red": "\033[91m", "blue": "\033[94m", "green": "\033[92m"}
 
     reset_code = "\033[0m"
-
+    color = color.lower()
     if color not in color_codes:
         raise ValueError(
             f"Invalid color: {color}. Allowed colors are 'red', 'blue', and 'green'."

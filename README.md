@@ -125,7 +125,7 @@ pip install -r requirements.txt
 
 21. Install Development Dependencie
 ```bash
-pip install -r requirements-dev.txt
+pip install -r dev-requirements.txt
 ```
 
 ## Usage Section
