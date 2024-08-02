@@ -31,9 +31,7 @@ def hello(name="world") -> str:
     """
 
     if not isinstance(name, str):
-        raise TypeError(
-            f" {type(name).__name__} is not allowed, name should be of string type"
-        )
+        raise TypeError(f" {type(name).__name__} is not allowed, name should be of string type")
 
     return f"hello {name}!"
 
@@ -64,8 +62,6 @@ def color_string(text: str, color: Literal["red", "blue", "green"]) -> str:
     reset_code = "\033[0m"
     color = color.lower()
     if color not in color_codes:
-        raise ValueError(
-            f"Invalid color: {color}. Allowed colors are 'red', 'blue', and 'green'."
-        )
+        raise ValueError(f"Invalid color: {color}. Allowed colors are 'red', 'blue', and 'green'.")
 
     return f"{color_codes[color]}{text}{reset_code}"

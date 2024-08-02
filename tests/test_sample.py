@@ -19,7 +19,4 @@ def test_color_string():
 
     with pytest.raises(ValueError) as e:
         color_string("Hello, world!", "yellow")
-    assert (
-        "Invalid color: yellow. Allowed colors are 'red', 'blue', and 'green'."
-        in str(e.value)
-    )
+    assert "Invalid color: yellow. Allowed colors are 'red', 'blue', and 'green'." in str(e.value)

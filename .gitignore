@@ -164,3 +164,4 @@ cython_debug/
 .vscode
 _build
 .pytest_cache
+mc_env/
