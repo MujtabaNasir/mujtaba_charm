@@ -31,9 +31,9 @@ pip install git+https://github.com/MujtabaNasir/mujtaba-charm.git@branch_uno
 git clone https://github.com/MujtabaNasir/mujtaba_charm.git
 ```
 
-2. To install poetry with pip after cloning the repo:
+2. Navigate into the cloned repository:
 ```bash
-pip install poetry
+cd mujtaba-charm
 ```
 
 3. To create and switch to a new branch:
@@ -68,7 +68,7 @@ touch analysis/__init__.py models/__init__.py utils/__init__.py
 poetry add --dev pytest
 ```
 
-9. Ensure all dependencies, including pytest, are installed.
+9. Ensure all dependencies, including pytest, pytest coverage, black, isort are installed.
 ```bash
 poetry install
 ```
@@ -88,6 +88,46 @@ pip install dist/mujtaba_charm-0.1.0-py3-none-any.whl
 pip install -e .
 ```
 
+13. Install black and isort using poetry
+```bash
+poetry add --dev black isort
+```
+
+14. Install coverage
+```bash
+poetry add --dev pytest coverage
+```
+
+15. Install pytest-cov
+```bash
+poetry add --dev pytest-cov
+```
+
+16. Install sphinx along with autodoc
+```bash
+poetry add --group dev sphinx sphinx-autodoc-typehints
+```
+
+17. Configure Sphinx to set up documentation
+```bash
+poetry run sphinx-quickstart
+```
+
+19. To generate documentation
+```bash
+poetry run sphinx-build -b html source _build/html
+```
+
+20. Install Core Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+21. Install Development Dependencie
+```bash
+pip install -r dev-requirements.txt
+```
+
 ## Usage Section
 1. To use the hello funtion from the utils sub-package:
 ```
@@ -98,10 +138,19 @@ pip install -e .
 
 >>> hello()
 'hello world!'
+
+>>> hello(2024)
+TypeError: int is not allowed, name should be of string type
+```
+
+2. To run black and isort using poetry
+```bash
+poetry run black .
+poetry run isort .
 ```
 
 ## Testing
-1. To run the tests:
+1. To run the tests along with pytest coverage:
 ```
 poetry run pytest
 ```
