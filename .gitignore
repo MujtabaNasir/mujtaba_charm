@@ -165,3 +165,7 @@ cython_debug/
 _build
 .pytest_cache
 mc_env/
+datasets/
+notebooks/db_eda.ipynb
+notebooks/model_predictions_eda.ipynb
+notebooks/mnist.npz
