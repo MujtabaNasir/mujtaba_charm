@@ -1,22 +1,13 @@
-import glob
+import json
 import os
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+from sklearn.metrics import precision_recall_curve
 
 
-def read_file(directory_path):
-    data_frames = []
-    csv_files = glob.glob(os.path.join(directory_path, "*.csv"))
-
-    for file_path in csv_files:
-        df = pd.read_csv(file_path, encoding="unicode_escape")
-        data_frames.append(df)
-
-    return data_frames
-
-
-def clean_data(df):
+def clean_data(df: pd.DataFrame):
     print(f"shape is: {df.shape}")
     df.info()
     print(f"Information regarding the data types:\n{df.dtypes}")
@@ -36,18 +27,50 @@ def clean_data(df):
     else:
         print("There are no null values")
 
-
-def descriptive_statistics(df):
-    print(f"Statistical data:\n{df.describe()}")
-
-
 def data_visualization(df):
-    df.select_dtypes(include="number").boxplot()
-    plt.title("Boxplot of Numerical Columns")
-    plt.xticks(rotation=70)
+    if "metadata" in df.columns:
+        parsed_metadata = df["metadata"].apply(lambda x: json.loads(x))
+        parsed_metadata_list = parsed_metadata.tolist()
+        df_metadata = pd.json_normalize(parsed_metadata_list)
+        correlation_matrix = df_metadata.corr()
+        print(correlation_matrix)
+
+def big_data_analytics(df, file_path, results):
+    y_true = df["label"].astype(int)
+    y_pred = df["score"].astype(float)
+    precision, recall, thresholds = precision_recall_curve(y_true, y_pred)
+    f1_scores = 2 * (precision * recall) / (precision + recall)
+    optimal_index = np.argmax(f1_scores)
+    optimal_threshold = thresholds[optimal_index]
+
+    results.append(
+        {
+            "file": os.path.basename(file_path),
+            "optimal_threshold": optimal_threshold,
+            "precision": precision[optimal_index],
+            "recall": recall[optimal_index],
+            "f1_score": f1_scores[optimal_index],
+        }
+    )
+
+    print(f"File: {os.path.basename(file_path)}")
+    print(f"Optimal Threshold: {optimal_threshold}")
+    print(f"Precision: {precision[optimal_index]}")
+    print(f"Recall: {recall[optimal_index]}")
+    print(f"F1 Score: {f1_scores[optimal_index]}\n")
+    return precision, recall, results
+
+def precision_recall_visualization(precision, recall, file_path):
+    plt.plot(recall, precision, marker=".")
+    plt.title(f"Precision-Recall Curve for {os.path.basename(file_path)}")
+    plt.xlabel("Recall")
+    plt.ylabel("Precision")
     plt.show()
 
-    df.select_dtypes(include="number").hist(edgecolor="black")
-    plt.title("Histograms of Numerical Columns")
-    plt.tight_layout(rect=[0, 0, 1, 0.95])
+def model_comparison_histogram(comparison_df):
+    comparison_df.plot(x="file", y="f1_score", kind="bar", legend=False)
+    plt.title("F1 Score Comparison Across Datasets")
+    plt.xlabel("Dataset")
+    plt.ylabel("F1 Score")
+    plt.xticks(rotation=45, ha="right")
     plt.show()
