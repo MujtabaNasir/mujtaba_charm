@@ -165,7 +165,8 @@ cython_debug/
 _build
 .pytest_cache
 mc_env/
+mujtaba_charm/fonts/
 datasets/
 notebooks/db_eda.ipynb
 notebooks/model_predictions_eda.ipynb
-notebooks/mnist.npz
+notebooks/image_overlapping.ipynb
