@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.metrics import precision_recall_curve
+import seaborn as sns
 
 
 def clean_data(df: pd.DataFrame):
@@ -47,13 +48,23 @@ def data_visualization(df):
     Displays:
         - Correlation matrix.
     """
+    # if "metadata" in df.columns:
+    #     parsed_metadata = df["metadata"].apply(lambda x: json.loads(x))
+    #     parsed_metadata_list = parsed_metadata.tolist()
+    #     df_metadata = pd.json_normalize(parsed_metadata_list)
+    #     correlation_matrix = df_metadata.corr()
+    #     print(correlation_matrix)
+
     if "metadata" in df.columns:
-        parsed_metadata = df["metadata"].apply(lambda x: json.loads(x))
-        parsed_metadata_list = parsed_metadata.tolist()
+        parsed_metadata = df["metadata"].apply(lambda x: json.loads(x))        
+        parsed_metadata_list = parsed_metadata.tolist()        
         df_metadata = pd.json_normalize(parsed_metadata_list)
-        breakpoint()
-        correlation_matrix = df_metadata.corr()
-        print(correlation_matrix)
+        correlation_matrix = df_metadata.corr()        
+        plt.figure(figsize=(20, 20))
+        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", cbar=True, square=True)        
+        plt.title('Correlation Matrix Heatmap')        
+        plt.show()
+
 
 def big_data_analytics(df, file_path, results):
     """

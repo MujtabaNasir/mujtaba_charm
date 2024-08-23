@@ -15,6 +15,15 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+   modules
+   mujtaba_charm.analysis.exploratory_data_analysis
+   mujtaba_charm.analysis.image
+   mujtaba_charm.analysis
+   mujtaba_charm.models
+   mujtaba_charm
+   mujtaba_charm.utils
+   mujtaba_charm.utils.sample
+
 Project Description
 -------------------
 The project aims to provide a python package using pip which has 3 sub-packages:
@@ -97,8 +106,8 @@ Usage Section
 
 Testing
 -------
-1. To run the tests along with pytest coverage:
+1. To run pytest, navigate to the root directory of your project where your tests are located and run:
 
    .. code-block:: bash
 
-      pytest --cov=mujtaba_charm
+      pytest 
