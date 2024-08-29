@@ -164,3 +164,7 @@ cython_debug/
 .vscode
 _build
 .pytest_cache
+mc_env/
+mujtaba_charm/fonts/
+datasets/
+fonts/

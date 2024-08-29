@@ -9,7 +9,7 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath("../mujtaba_charm"))
 
 project = "mujtaba-charm"
 copyright = "2024, Mujtaba"
@@ -23,13 +23,16 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
     "sphinx_autodoc_typehints",
+    "sphinx.ext.autosummary",
+    "myst_parser",
 ]
 templates_path = ["_templates"]
 exclude_patterns = []
+autosummary_generate = True
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "alabaster"
+html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
