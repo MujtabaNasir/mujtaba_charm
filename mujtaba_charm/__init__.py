@@ -10,4 +10,4 @@ Sub-Packages:
 
 """
 
-from mujtaba_charm import utils,analysis
+from mujtaba_charm import analysis, models, utils

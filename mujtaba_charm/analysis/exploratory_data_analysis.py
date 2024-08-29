@@ -4,8 +4,8 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.metrics import precision_recall_curve
 import seaborn as sns
+from sklearn.metrics import precision_recall_curve
 
 
 def clean_data(df: pd.DataFrame):
@@ -15,10 +15,14 @@ def clean_data(df: pd.DataFrame):
     Args:
         df (pd.DataFrame): The DataFrame to be cleaned.
 
+    Returns:
+        pd.DataFrame: The cleaned DataFrame.
+
     Prints:
-        Shape of the DataFrame before and after removing duplicates.
+        The shape of the DataFrame before and after removing duplicates.
         Information about data types and null values.
     """
+
     print(f"shape is: {df.shape}")
     df.info()
     print(f"Information regarding the data types:\n{df.dtypes}")
@@ -38,31 +42,29 @@ def clean_data(df: pd.DataFrame):
     else:
         print("There are no null values")
 
+
 def data_visualization(df):
     """
     Visualizes the correlation matrix of the 'metadata' column in the DataFrame.
 
     Args:
         df (pd.DataFrame): The DataFrame containing the 'metadata' column.
-    
+
+    Returns:
+        None
+
     Displays:
-        - Correlation matrix.
+        The correlation matrix.
     """
-    # if "metadata" in df.columns:
-    #     parsed_metadata = df["metadata"].apply(lambda x: json.loads(x))
-    #     parsed_metadata_list = parsed_metadata.tolist()
-    #     df_metadata = pd.json_normalize(parsed_metadata_list)
-    #     correlation_matrix = df_metadata.corr()
-    #     print(correlation_matrix)
 
     if "metadata" in df.columns:
-        parsed_metadata = df["metadata"].apply(lambda x: json.loads(x))        
-        parsed_metadata_list = parsed_metadata.tolist()        
+        parsed_metadata = df["metadata"].apply(lambda x: json.loads(x))
+        parsed_metadata_list = parsed_metadata.tolist()
         df_metadata = pd.json_normalize(parsed_metadata_list)
-        correlation_matrix = df_metadata.corr()        
+        correlation_matrix = df_metadata.corr()
         plt.figure(figsize=(20, 20))
-        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", square=True)        
-        plt.title('Correlation Matrix Heatmap')        
+        sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f", square=True)
+        plt.title("Correlation Matrix Heatmap")
         plt.show()
 
 
@@ -79,9 +81,9 @@ def big_data_analytics(df, file_path, results):
         tuple: A tuple containing precision, recall arrays, and the updated results list.
 
     Prints:
-        - The file name.
-        - The optimal threshold, precision, recall, and F1 score.
+        The file name, optimal threshold, precision, recall, and F1 score.
     """
+
     y_true = df["label"].astype(int)
     y_pred = df["score"].astype(float)
     precision, recall, thresholds = precision_recall_curve(y_true, y_pred)
@@ -106,6 +108,7 @@ def big_data_analytics(df, file_path, results):
     print(f"F1 Score: {f1_scores[optimal_index]}\n")
     return precision, recall, results
 
+
 def precision_recall_visualization(precision, recall, file_path):
     """
     Plots the Precision-Recall curve for the given precision and recall values.
@@ -116,13 +119,15 @@ def precision_recall_visualization(precision, recall, file_path):
         file_path (str): Path to the file being analyzed, used for the plot title.
 
     Displays:
-        - A Precision-Recall curve.
+        A Precision-Recall curve.
     """
+
     plt.plot(recall, precision, marker=".")
     plt.title(f"Precision-Recall Curve for {os.path.basename(file_path)}")
     plt.xlabel("Recall")
     plt.ylabel("Precision")
     plt.show()
+
 
 def model_comparison_histogram(comparison_df):
     """
@@ -132,8 +137,9 @@ def model_comparison_histogram(comparison_df):
         comparison_df (pd.DataFrame): DataFrame containing the comparison data with 'file' and 'f1_score' columns.
 
     Displays:
-        - A bar plot comparing F1 scores across datasets.
+        A bar plot comparing F1 scores across datasets.
     """
+
     comparison_df.plot(x="file", y="f1_score", kind="bar", legend=False)
     plt.title("F1 Score Comparison Across Datasets")
     plt.xlabel("Dataset")

@@ -9,7 +9,7 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('../mujtaba_charm'))
+sys.path.insert(0, os.path.abspath("../mujtaba_charm"))
 
 project = "mujtaba-charm"
 copyright = "2024, Mujtaba"
@@ -23,8 +23,8 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
     "sphinx_autodoc_typehints",
-    'sphinx.ext.autosummary',
-    'myst_parser',
+    "sphinx.ext.autosummary",
+    "myst_parser",
 ]
 templates_path = ["_templates"]
 exclude_patterns = []

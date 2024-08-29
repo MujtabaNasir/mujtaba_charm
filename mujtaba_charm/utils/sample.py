@@ -7,11 +7,10 @@ from typing import Literal
 
 def hello(name="world") -> str:
     """
-    Returns a string greeting the name entered as parameter. If no name
-    provided, it greets the world.
+    Returns a string greeting the name entered as a parameter. If no name is provided, it greets the world.
 
     Args:
-        name (str, optional): The name that is greeted by the function. Default parameter is "world".
+        name (str, optional): The name to be greeted by the function. Defaults to "world".
 
     Returns:
         str: A string that greets the user.
@@ -19,7 +18,7 @@ def hello(name="world") -> str:
     Raises:
         TypeError: If the argument is not of string type.
 
-    Example:
+    Examples:
         >>> hello("john")
         'hello john!'
 
@@ -50,13 +49,14 @@ def color_string(text: str, color: Literal["red", "blue", "green"]) -> str:
     Raises:
         ValueError: If the specified color is not 'red', 'blue', or 'green'.
 
-    Example:
+    Examples:
         >>> color_string("Hello, world!", "red")
         '\033[91mHello, world!\033[0m'
 
         >>> color_string("Hello, world!", "blue")
         '\033[94mHello, world!\033[0m'
     """
+
     color_codes = {"red": "\033[91m", "blue": "\033[94m", "green": "\033[92m"}
 
     reset_code = "\033[0m"
