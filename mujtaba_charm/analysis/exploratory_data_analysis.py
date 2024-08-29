@@ -16,8 +16,8 @@ def clean_data(df: pd.DataFrame):
         df (pd.DataFrame): The DataFrame to be cleaned.
 
     Prints:
-        - Shape of the DataFrame before and after removing duplicates.
-        - Information about data types and null values.
+        Shape of the DataFrame before and after removing duplicates.
+        Information about data types and null values.
     """
     print(f"shape is: {df.shape}")
     df.info()
@@ -61,7 +61,7 @@ def data_visualization(df):
         df_metadata = pd.json_normalize(parsed_metadata_list)
         correlation_matrix = df_metadata.corr()        
         plt.figure(figsize=(20, 20))
-        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", cbar=True, square=True)        
+        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", square=True)        
         plt.title('Correlation Matrix Heatmap')        
         plt.show()
 
